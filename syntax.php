@@ -75,7 +75,7 @@ class syntax_plugin_recent extends DokuWiki_Syntax_Plugin {
                 $user = $userdata['name'];
 
 
-                if ($sum != "" && trim($sum) != "[Table]") {
+                if ($sum != "" && trim(substr($sum,0, 1)) != "[") {
                     if (trim($sum) == "Approved") {
                         $toPage .= "| @lightgreen:".$date." | @lightgreen:".$sum." | @lightgreen:".$user." |\n";
                     } else {
