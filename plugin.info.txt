@@ -1,0 +1,7 @@
+base   recent
+author Ruud Habing
+email  ruud.habing@lagersmit.com
+date   2020-11-05
+name   Recent list of revisions
+desc   Recent list of revisions for use in pdf export
+url    https://github.com/lagersmit/recent.git
