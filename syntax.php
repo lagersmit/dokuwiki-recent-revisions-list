@@ -68,18 +68,20 @@ class syntax_plugin_recent extends DokuWiki_Syntax_Plugin {
                 $columns = preg_split("/\t/", $line);
                 $sum = $columns[5];
                 $date = Date("Y-m-d h:i", $columns[0]);
-                $loginname = $columns[4];
+                if ($date) {
+                    $loginname = $columns[4];
 
-                global $auth;
-                $userdata = $auth->getUserData($loginname);
-                $user = $userdata['name'];
+                    global $auth;
+                    $userdata = $auth->getUserData($loginname);
+                    $user = $userdata['name'];
 
 
-                if ($sum != "" && trim(substr($sum,0, 1)) != "[") {
-                    if (trim($sum) == "Approved") {
-                        $toPage .= "| @lightgreen:".$date." | @lightgreen:".$sum." | @lightgreen:".$user." |\n";
-                    } else {
-                        $toPage .= "| ".$date." | ".ucfirst($sum)." | ".$user." |\n";
+                    if ($sum != "" && trim(substr($sum,0, 1)) != "[") {
+                        if (trim($sum) == "Approved") {
+                            $toPage .= "| @lightgreen:".$date." | @lightgreen:".$sum." | @lightgreen:".$user." |\n";
+                        } else {
+                            $toPage .= "| ".$date." | ".ucfirst($sum)." | ".$user." |\n";
+                        }
                     }
                 }
             }
